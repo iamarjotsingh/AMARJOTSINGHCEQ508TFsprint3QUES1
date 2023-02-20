@@ -51,6 +51,9 @@ resource "aws_instance" "amar1_EC2" {
   count = 2
   ami                     = "ami-0f8ca728008ff5af4"
   instance_type           = "t2.micro"
+
+
+  vpc_security_group_ids = ["${aws_security_group.amar_secgroup.id}"]
   
 
   subnet_id = "${aws_subnet.amar_subnet1.id}"
@@ -79,6 +82,9 @@ resource "aws_instance" "amar2_EC2" {
   count = 2
   ami                     = "ami-0f8ca728008ff5af4"
   instance_type           = "t2.micro"
+
+
+  vpc_security_group_ids = ["${aws_security_group.amar_secgroup.id}"]
  
 
   subnet_id = "${aws_subnet.amar_subnet2.id}"
